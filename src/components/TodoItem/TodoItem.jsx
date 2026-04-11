@@ -15,12 +15,20 @@ const TodoItem = (props) => {
     firstIncompleteTaskRef,
     firstIncompleteTaskId,
     deleteTask,
-    toggleTaskComplete
+    toggleTaskComplete,
+    disappearingTaskId,
+    appearingTaskId,
   } = useContext(TasksContext);
+
 
   return (
       <li 
-        className={`${styles.todoItem} ${className}`} 
+        className={`
+          ${styles.todoItem} 
+          ${className} 
+          ${disappearingTaskId === id ? styles.isDisappearing : ''}
+          ${appearingTaskId === id ? styles.isAppearing : ''}
+          `} 
         ref={firstIncompleteTaskId ? firstIncompleteTaskRef : null}
       >
         <input
