@@ -28,7 +28,7 @@ const tasksAPI = {
     },
 
     deleteAll:(tasks) => {
-        Promise.all(
+        return Promise.all(
           tasks.map(({id}) => tasksAPI.delete(id))
         )
     },
